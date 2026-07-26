@@ -38,8 +38,38 @@ make -j$(nproc) install
 ```
 
 
+## Install
+Build Debian 13 Trixie de SCAP Workbench 1.2.1.
 
+Cette version est compilée avec :
 
+- Debian 13 Trixie
+- Qt 5.15.15
+- OpenSCAP 1.4.2
+- SCAP Security Guide Debian 13
+
+### Fonctionnalités testées
+
+- Scan SCAP Debian 13
+- Profils ANSSI
+- Rapports HTML
+- Génération de remédiation
+- Téléchargement automatique des ressources OVAL Debian
+
+---
+
+### Installation
+
+```bash
+wget https://github.com/allpic/scap-workbench-debian13/raw/main/release/deb/scap-workbench_1.2.1+debian13-1_amd64.deb
+
+sudo apt install ./scap-workbench_1.2.1+debian13-1_amd64.deb
+```
+or
+```bash
+curl -LO https://github.com/allpic/scap-workbench-debian13/raw/main/release/deb/scap-workbench_1.2.1+debian13-1_amd64.deb
+sudo apt install ./scap-workbench_1.2.1+debian13-1_amd64.deb
+```
 
 What now?
 ---------
