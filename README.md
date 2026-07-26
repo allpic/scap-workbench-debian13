@@ -61,13 +61,12 @@ Cette version est compilée avec :
 ### Installation
 
 ```bash
-wget https://github.com/allpic/scap-workbench-debian13/raw/main/release/deb/scap-workbench_1.2.1+debian13-1_amd64.deb
-
+wget https://github.com/allpic/scap-workbench-debian13/releases/download/v1.2.1-debian13/scap-workbench_1.2.1+debian13-1_amd64.deb
 sudo apt install ./scap-workbench_1.2.1+debian13-1_amd64.deb
 ```
 or
 ```bash
-curl -LO https://github.com/allpic/scap-workbench-debian13/raw/main/release/deb/scap-workbench_1.2.1+debian13-1_amd64.deb
+curl -LO https://github.com/allpic/scap-workbench-debian13/releases/download/v1.2.1-debian13/scap-workbench_1.2.1+debian13-1_amd64.deb
 sudo apt install ./scap-workbench_1.2.1+debian13-1_amd64.deb
 ```
 
