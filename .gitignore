@@ -4,12 +4,12 @@
 # Build dir
 build/
 debian/
-*.deb
-*.buildinfo
-*.changes
-*.dsc
-*.tar.gz
-*.tar.xz
+#*.deb
+#*.buildinfo
+#*.changes
+#*.dsc
+#*.tar.gz
+#*.tar.xz
 
 .clang_complete
 CMakeLists.txt.user
