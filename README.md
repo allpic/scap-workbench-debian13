@@ -1,4 +1,4 @@
-SCAP Workbench
+SCAP Workbench build Debian Trixie
 ==============
 
 A GUI tool that provides scanning, tailoring and validation functionality for SCAP content
@@ -10,103 +10,36 @@ SCAP Workbench is a GUI tool that provides scanning, tailoring
 and validation functionality for SCAP content. It uses openscap library
 to access SCAP functionalities.
 
-Homepage of the project is https://www.open-scap.org/tools/scap-workbench/
+Homepage of the source project is https://www.open-scap.org/tools/scap-workbench/
 
 How to run it out of the box
 ----------------------------
 
-1) Make sure you have installed all prerequisites
-
-required dependencies:
+On Debian Trixie:
 ```console
-# yum install cmake gcc-c++ openssh-clients util-linux openscap-devel qt5-qtbase-devel qt5-qtxmlpatterns-devel openssh-askpass
-```
-
-required dependencies (only for the git repo, not required for released tarballs):
-```console
-# yum install asciidoc
-```
-
-optional dependencies:
-```console
-# yum install polkit
-```
-
-On Ubuntu this is roughly equivalent to:
-
-```console
-# apt install build-essential openssh-client libopenscap-dev libqt5xmlpatterns5-dev ssh-askpass
-# apt install asciidoc
-# apt install libpolkit-agent-1-0
+apt install -y build-essential openssh-client libopenscap-dev libqt5xmlpatterns5-dev ssh-askpass asciidoc cmake pkg-config libpolkit-agent-1-0
 ```
 
 2) Build SCAP Workbench:
 ```console
 $ mkdir build; cd build
 $ cmake ../
-$ make
 ```
-To build against locally built OpenSCAP library export following variables:
 
+Then on Debian Trixie if you want test immediately
 ```console
-$ export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/PATH/TO/DIR/WITH/.pcFILE/"
-$ export LIBRARY_PATH=/PATH/TO/DIR/WITH/openscap.soFILE/
+apt install -y openscap-scanner openscap-utils ssg-base
+
+wget http://ftp.de.debian.org/debian/pool/main/s/scap-security-guide/ssg-debian_0.1.80-1_all.deb
+dpkg -i ssg-debian_0.1.80-1_all.deb
+rm -rf ssg-debian_0.1.80-1_all.deb
+
+make -j$(nproc) install
 ```
 
-Additionally it is possible to use custom CMake definitions instead of exporting environment variables:
 
-```console
-$ cmake -DOPENSCAP_LIBRARIES:PATH=/local/openscap.so/filepath/ \
-    -DOPENSCAP_INCLUDE_DIRS:PATH=/local/openscap/include/path \
-    -DOPENSCAP_VERSION:STRING="X.Y.Z" \
-    ../
-$ make
-```
 
-3) Install SCAP Workbench: (optional)
 
-(inside the build folder):
-```console
-$ # may require superuser privileges if you didn't set different installation
-$ # prefix (CMAKE_INSTALL_PREFIX)
-$ make install
-```
-
-4a) Run SCAP Workbench: (if it was installed)
-
-spawning open file dialog:
-```console
-$ scap-workbench
-```
-
-with an XCCDF file to load:
-```console
-$ scap-workbench /path/to/xccdf-file.xml
-```
-
-with a source datastream (SDS) to load:
-```console
-$ scap-workbench /path/to/sds-file
-```
-
-4b) Run SCAP Workbench: (straight from build dir, without installation)
-
-Note: If you have built SCAP-Workbench against locally built OpenSCAP library, then run one of the following commands:
-
-```console
-$ ldconfig /PATH/TO/DIR/WITH/openscap.soFILE/
-```
-or
-```console
-$ export LD_LIBRARY_PATH=/PATH/TO/DIR/WITH/openscap.soFILE/
-```
-
-and then:
-
-```console
-$ cd build/
-$ bash runwrapper.sh ./scap-workbench
-```
 
 What now?
 ---------
