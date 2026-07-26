@@ -55,7 +55,7 @@ There are 3 ways to get the user manual:
 How to make a tarball
 ---------------------
 ```console
-$ mkdir build; cd build
-$ cmake ../
-$ make package_source
+mkdir build; cd build
+cmake ../
+make package_source
 ```
